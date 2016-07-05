@@ -10,7 +10,9 @@
     "mustache": "^2.2.1",
     "sinon": "^1.17.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "zombie": "^4.2.1"
+  },
   "scripts": {
     "test": "mocha test"
   },
