@@ -2,7 +2,8 @@ var assert = require('chai').assert;
 var expect = require('chai').expect;
 var sinon = require("sinon");
 
-var ToDoList = require('../src/toDoList')
+var ToDoItem = require('../src/toDoItem');
+var ToDoList = require('../src/toDoList');
 
 describe('ToDoList', function() {
 
@@ -30,6 +31,19 @@ describe('ToDoList', function() {
   it('list is no longer empty once toDoItem has been added', function() {
     toDoList.addToDo('Eat breakfast');
     expect(toDoList.list).not.to.be.empty;
+  });
+
+  it('returns HTML string with to dos as unordered list', function() {
+    toDoList = new ToDoList(ToDoItem);
+    toDoList.addToDo('Eat breakfast');
+    expect(toDoList.html()).to.equal('<ul>\n<li><div>Eat breakfast</div></li>\n</ul>')
+  });
+
+  it('returns HTML string with to dos as unordered list', function() {
+    toDoList = new ToDoList(ToDoItem);
+    toDoList.addToDo('Eat breakfast');
+    toDoList.addToDo('Brush teeth');
+    expect(toDoList.html()).to.equal('<ul>\n<li><div>Eat breakfast</div></li>\n<li><div>Brush teeth</div></li>\n</ul>');
   });
 
 });
