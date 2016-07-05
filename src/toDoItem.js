@@ -1,13 +1,13 @@
-var ToDo = function(task) {
+var ToDoItem = function(task) {
   this.task = task;
   this.isComplete = false;
 };
 
-ToDo.prototype = {
+ToDoItem.prototype = {
   finished: function() {
     this.isComplete = true;
   },
 };
 
 
-module.exports = ToDo;
+module.exports = ToDoItem;
