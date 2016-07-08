@@ -17,3 +17,11 @@
 		list.list[itemIndex].changeStatus();
 		updateList();
 	};
+
+	$.getJSON('http://quiet-beach-24792.herokuapp.com/todos.json', function(data) {
+		$.each(data, function(k, v) {
+			console.log(k);
+			console.log(v.text);
+		})
+	
+	});

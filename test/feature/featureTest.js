@@ -36,6 +36,10 @@ describe('home page', function() {
 	  browser.pressButton('Add to list');
 		assert.include(browser.text('ul'), 'phone grandma');
 		assert.include(browser.text('ul'), 'eat chocolate');
+		assert.include(browser.text('ul'), 'Shoot the ice cream van guy for Leo');
+		assert.include(browser.text('ul'), 'Fix the Walkthroughs');
+		assert.include(browser.text('ul'), 'Drink some beer!');
+		assert.include(browser.text('ul'), 'Feed Sergio\'s neighbours cat!');
 	});
 
 	it('toDo starts with status not complete', function(){
@@ -45,13 +49,13 @@ describe('home page', function() {
 	});
 
 	it('once two checkboxes are ticked, both toDos have status complete', function(){
-        browser.fill('task', 'phone grandma');
-        browser.pressButton('Add to list');
-        browser.check("checkbox1");
-        browser.fill('task', 'wash hair');
-        browser.pressButton('Add to list');
-        browser.check("checkbox2");
-        assert.notInclude(browser.text('ul'), 'not');
-    });
+    browser.fill('task', 'phone grandma');
+    browser.pressButton('Add to list');
+    browser.pressButton("checkbox1");
+    browser.fill('task', 'wash hair');
+    browser.pressButton('Add to list');
+    browser.pressButton("checkbox2");
+    assert.notInclude(browser.text('ul'), 'not');
+   });
 
 });
